@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Book</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>✨ Culinary Collection</h1>
+
+      <form id="recipeForm">
+        <div class="form-group">
+          <label for="recipeName">Recipe Name</label>
+          <input type="text" id="recipeName" required />
+        </div>
+        <div class="form-group">
+          <label for="ingredients">Ingredients</label>
+          <textarea id="ingredients" required rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="steps">Instructions</label>
+          <textarea id="steps" required rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="cookingTime">Cooking Time (minutes)</label>
+          <input type="number" id="cookingTime" required />
+        </div>
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="">Select Category</option>
+            <option value="Breakfast">Breakfast</option>
+            <option value="Lunch">Lunch</option>
+            <option value="Dinner">Dinner</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Beverages">Beverages</option>
+            <option value="Snacks">Snacks</option>
+          </select>
+        </div>
+        <button type="submit"><i class="fas fa-plus"></i> Add Recipe</button>
+      </form>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="search"
+          placeholder="🔍 Search your recipes..."
+          oninput="filterRecipes()"
+        />
+      </div>
+
+      <div id="recipeList"></div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
