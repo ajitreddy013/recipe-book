@@ -10,17 +10,21 @@
   --dark-color: #2d3436;
   --light-color: #f9f9f9;
   --border-radius: 16px;
-  --heading-font: "Poppins", "Segoe UI", sans-serif;
+  --heading-font: "Playfair Display", serif;
+  --body-font: "Source Sans 3", sans-serif;
+  --ui-font: "Montserrat", sans-serif;
 }
 
 body {
-  font-family: "Nunito", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: var(--body-font);
   margin: 0;
   padding: 0;
   min-height: 100vh;
   background: linear-gradient(45deg, #f6d365 0%, #fda085 100%);
   background-attachment: fixed;
   color: var(--text-color);
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .container {
@@ -35,7 +39,7 @@ body {
 h1 {
   text-align: center;
   color: white;
-  font-size: 3.2rem;
+  font-size: 3.4rem;
   margin-bottom: 2.5rem;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -92,11 +96,13 @@ h1::after {
   top: -0.5rem;
   background: white;
   padding: 0 0.5rem;
-  font-size: 0.8rem;
-  color: #666;
+  font-size: 0.85rem;
+  color: #555;
   border-radius: 4px;
   font-weight: 600;
   z-index: 1;
+  font-family: var(--ui-font);
+  letter-spacing: 0.5px;
 }
 
 input,
@@ -109,7 +115,7 @@ select {
   font-size: 1rem;
   transition: all 0.3s ease;
   background: rgba(255, 255, 255, 0.9);
-  font-family: inherit;
+  font-family: var(--body-font);
 }
 
 input:focus,
@@ -127,12 +133,13 @@ button {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  font-family: var(--ui-font);
 }
 
 button:hover {
@@ -245,13 +252,16 @@ button:hover {
 
 .recipe h3 {
   color: var(--text-color);
-  margin: 0 0 1rem 0;
   font-size: 1.6rem;
   position: relative;
-  padding-bottom: 0.5rem;
   font-family: var(--heading-font);
   font-weight: 700;
   line-height: 1.3;
+  padding-right: 0.5rem;
+}
+
+.recipe-header {
+  margin-bottom: 1rem;
 }
 
 .recipe-tags {
@@ -271,6 +281,7 @@ button:hover {
   font-weight: 600;
   box-shadow: 0 2px 10px rgba(78, 205, 196, 0.2);
   letter-spacing: 0.5px;
+  font-family: var(--ui-font);
 }
 
 .recipe-diet-type {
@@ -393,7 +404,7 @@ button:hover {
   color: #333;
   font-size: 1.1rem;
   font-weight: 700;
-  font-family: var(--heading-font);
+  font-family: var(--ui-font);
 }
 
 .recipe-buttons {
@@ -530,6 +541,8 @@ input[type="file"] {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   cursor: pointer;
+  width: 100%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Recipe card image styles */
@@ -623,6 +636,15 @@ input[type="file"] {
     margin-left: 0;
     margin-top: 0;
   }
+
+  .recipe-title-container h3 {
+    font-size: 1.4rem;
+  }
+
+  .icon-btn {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -640,6 +662,8 @@ input[type="file"] {
 .form-group textarea {
   resize: none;
   min-height: 120px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group input,
@@ -647,6 +671,8 @@ input[type="file"] {
 .form-group select {
   background: rgba(255, 255, 255, 0.8);
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group:focus-within label {
@@ -662,6 +688,9 @@ input[type="file"] {
   padding-bottom: 1rem;
   color: var(--dark-color);
   font-family: var(--heading-font);
+  font-size: 2.2rem;
+  font-weight: 600;
+  letter-spacing: -0.5px;
 }
 
 .form-title::after {
@@ -674,4 +703,116 @@ input[type="file"] {
   height: 3px;
   background: var(--gradient-1);
   border-radius: 3px;
+}
+
+/* Time input styling */
+.time-input-group {
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.time-input-container {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.time-input-container:focus-within {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(78, 205, 196, 0.2);
+}
+
+.time-icon {
+  color: var(--primary-color);
+  padding: 0 0.8rem;
+  font-size: 1.2rem;
+}
+
+.time-input-container input {
+  flex: 1;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 1.1rem 0.5rem;
+  width: auto;
+}
+
+.time-input-container input:focus {
+  outline: none;
+  box-shadow: none;
+  border: none;
+}
+
+.time-unit {
+  padding-right: 1rem;
+  color: #666;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: var(--ui-font);
+}
+
+/* Hide number input arrows */
+.time-input-container input[type="number"]::-webkit-inner-spin-button,
+.time-input-container input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.time-input-container input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Recipe title container with action icons */
+.recipe-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.7rem;
+}
+
+.recipe-title-container h3 {
+  margin: 0;
+  padding-right: 0.5rem;
+  flex: 1;
+}
+
+.recipe-quick-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  padding: 0;
+  color: #666;
+  box-shadow: none;
+}
+
+.icon-btn:hover {
+  transform: translateY(0);
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: none;
+}
+
+.edit-icon:hover {
+  color: var(--primary-color);
+}
+
+.delete-icon:hover {
+  color: var(--secondary-color);
 }
