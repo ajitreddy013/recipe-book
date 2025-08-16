@@ -114,7 +114,21 @@ function renderRecipes(recipes) {
       </div>
       <div class="recipe-content">
         <div class="recipe-header">
-          <h3>${recipe.name}</h3>
+          <div class="recipe-title-container">
+            <h3>${recipe.name}</h3>
+            <div class="recipe-quick-actions">
+              <button class="icon-btn edit-icon" onclick="editRecipe('${
+                recipe._id
+              }')">
+                <i class="fas fa-pen"></i>
+              </button>
+              <button class="icon-btn delete-icon" onclick="deleteRecipe('${
+                recipe._id
+              }')">
+                <i class="fas fa-trash-alt"></i>
+              </button>
+            </div>
+          </div>
           <div class="recipe-tags">
             <span class="recipe-category">${recipe.category}</span>
             <span class="recipe-diet-type ${dietType.toLowerCase()}">${dietIcon} ${dietType}</span>
@@ -131,14 +145,6 @@ function renderRecipes(recipes) {
           <h4>Instructions</h4>
           <p>${recipe.steps}</p>
         </div>
-      </div>
-      <div class="recipe-buttons">
-        <button class="edit-btn" onclick="editRecipe('${recipe._id}')">
-          <i class="fas fa-edit"></i> Edit
-        </button>
-        <button class="delete-btn" onclick="deleteRecipe('${recipe._id}')">
-          <i class="fas fa-trash-alt"></i> Delete
-        </button>
       </div>
     `;
 
